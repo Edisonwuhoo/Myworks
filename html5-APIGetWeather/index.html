@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>openweatherAPI應用</title>
+    <link rel="stylesheet" href="myindex.css">   
+    <script src="https://kit.fontawesome.com/e489efb3b3.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="BackImgDefault">
+    <header>
+        <h1 style="font-size: 38px;font-weight: 900;">Weather Report For Next Five Days Per Three Hours </h1>
+        <div id="way">
+            <select name="" id="PlaceSelect" onchange="selectLocation()"></select>
+            <button onclick="getLocation()"><i class="fa-solid fa-location-dot fa-xl"></i></button>
+        </div>    
+    </header>
+    <main>
+        <div id="SearchResult"></div>
+        <div class="hidden" id="NowLocation"></div>
+    </main>
+
+<script>
+const PlaceSelect = document.getElementById('PlaceSelect');
+const SearchResult = document.getElementById('SearchResult');
+const NowLocation = document.getElementById('NowLocation')
+const MyAPIKey = "75c77a6fb14ddaf8e27f2d6b62b8c412";
+//const WeatherAPI_URL = `https://api.openweathermap.org/data/2.5/weather?lat=25.0856513&lon=121.421409&appid=${MyAPIKey}&units=metric&lang=zh_tw`;
+const CoordsData=[
+        {name:"",lat:"",lon:""},
+        {name:"台北",lat:25.05354157744751, lon:121.54634909536348},
+        {name:"新北",lat:25.001482106112316, lon:121.46568854746346},
+        {name:"桃園", lat:24.989334584717408, lon:121.3144879160299},
+        {name:"新竹", lat:24.80683136411496, lon:120.96582648080623},
+        {name:"苗栗", lat:24.570307554648206, lon:120.82229237159967},
+        {name:"台中",lat:24.137901195824103, lon:120.68688978370587},
+        {name:"彰化", lat:24.0751639266599, lon:120.53324304610574},
+        {name:"雲林", lat:23.70202583001852, lon:120.42432017456271},
+        {name:"嘉義", lat:23.4797348660539, lon:120.44106891375863},
+        {name:"台南", lat:22.997609839958926, lon:120.21259316338272},
+        {name:"高雄", lat:22.635723525106297, lon:120.3422470769948},
+        {name:"屏東", lat:22.670679015036722, lon:120.48819057410985},
+        {name:"基隆", lat:25.136924214112334, lon:121.73773721032215},
+        {name:"宜蘭",lat:22.7000444,lon:120.0508691},
+        {name:"花蓮", lat:23.978554494035755, lon:121.61313464899159},
+        {name:"台東", lat:22.765900955751015, lon:121.1557274526685},
+        {name:"南投", lat:23.918509657663932, lon:120.67709734599488},
+        {name:"玉山",lat:23.4751818,lon:120.9593216},
+    ];
+    
+function getLocation(){
+    if(navigator.geolocation == undefined){
+        alert("您的裝置不支援定位系統");
+        return
+    }
+    let settingOptions ={
+        enableHighAccuracy : true
+    };
+    navigator.geolocation.getCurrentPosition(success,error,settingOptions);
+}
+function success(positions){
+    //console.log(positions)
+    let myCoords = positions.coords;
+    //印出自己的經緯度位置
+    //console.log(`Mylocation,lat:${myCoords.latitude},lon:${myCoords.longitude}`)
+    //const MyLocationWeatherAPIUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${myCoords.latitude}&lon=${myCoords.longitude}&appid=${MyAPIKey}&units=metric&lang=zh_tw`;
+    const MyLocationWeatherAPIUrlForFiveDay = `https://api.openweathermap.org/data/2.5/forecast?lat=${myCoords.latitude}&lon=${myCoords.longitude}&cnt=24&appid=${MyAPIKey}&units=metric&lang=zh_tw`;
+    //console.log(MyLocationWeatherAPIUrl)
+    PlaceSelect.selectedIndex = 0;
+    loadCoordsData2(MyLocationWeatherAPIUrlForFiveDay);
+}
+function error(err){
+    //如果失敗提示失敗原因
+    alert(err)
+}
+    
+   
+//把選項打進去select裏面
+for(let i = 0 ; i < CoordsData.length ; i++){
+    PlaceSelect.innerHTML += `<<option value='${i}'>${CoordsData[i].name}</option>>`
+    //PlaceSelect.insertAdjacentHTML('beforeend',`<option value='${i}'>${CoordsData[i].name}</option>`)
+}
+
+
+function selectLocation() {
+    //selectedIndex會回傳select被選中的選項數字 可以取代this.value
+    const selectedNum = PlaceSelect.selectedIndex;
+    //利用被選中的數字回去找CoordsData裡面的相同順位的資料
+    const selectedLocation = CoordsData[selectedNum];
+    //直接使用查到的經緯度帶進去url
+    //const SelectWeatherAPIUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${selectedLocation.lat}&lon=${selectedLocation.lon}&appid=${MyAPIKey}&units=metric&lang=zh_tw`;
+    //發送帶有不同資料的正確請求
+    const SelectWeatherAPIUrlForFiveDay = `https://api.openweathermap.org/data/2.5/forecast?lat=${selectedLocation.lat}&lon=${selectedLocation.lon}&appid=${MyAPIKey}&units=metric&lang=zh_tw`;
+    loadCoordsData2(SelectWeatherAPIUrlForFiveDay);
+}
+
+const loadCoordsData2 = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    //data就是跑出結果的array
+    NowLocation.textContent = `Location: ${data.city.name}`;
+    NowLocation.classList.remove('hidden');
+    //console.log(data);
+    if(data.list[0].weather[0].main == 'Rain'){
+        document.body.classList.remove(document.body.classList);
+        document.body.classList.add('BackImgRain');
+        console.log("A");
+    }else if(data.list[0].weather[0].main == 'Clouds'){
+        document.body.classList.remove(document.body.classList);
+        document.body.classList.add('BackImgClouds');
+        console.log("B");
+    }else if(data.list[0].weather[0].main == 'Clear'){
+        document.body.classList.remove(document.body.classList);
+        document.body.classList.add('BackImgClear');
+        console.log("c");
+    }
+    SearchResult.replaceChildren("");
+    for(let n=0 ; n < data.list.length; n++){
+        const newDiv = document.createElement('div');
+        newDiv.classList.add('weaContainer');
+        newDiv.id =`${n}Box`;
+        if(data.list[n].rain){
+            newDiv.innerHTML = `
+        <div class="Eachline">
+            <div class="firstDiv">
+                <h2 class='titlehalf'>${ChangeTime(data.list[n].dt)}</h2>
+                <h1 class='titlehalf'>${data.list[n].weather[0].description}</h1>
+            </div>
+            <div class="secondDiv"><img class='imgInsecondDiv' src='https://openweathermap.org/img/wn/${data.list[n].weather[0].icon}@2x.png'></div>
+        </div>
+        <div class="Eachline">
+            <p><b>${data.list[n].main.temp_min.toFixed(1)}</b> °C&nbsp;&nbsp;~&nbsp;&nbsp;<b>${data.list[n].main.temp_max.toFixed(1)}</b> °C</p>
+            <p>體感溫度:<b>${data.list[n].main.feels_like.toFixed(1)}</b></p>
+        </div>
+        <div class="Eachline">
+            <p>降雨率:<b class='b2'>${Math.round(data.list[n].pop*100)}</b>%</p>
+            <p>累積降雨:<b class='b2'>${data.list[n].rain['3h']}</b>mm</p>
+            <p>濕度:<b class='b2'>${data.list[n].main.humidity}</b>%</p>
+        </div>
+        <div class="Eachline">
+            <p>最大陣風:<b>${data.list[n].wind.gust}</b> m/s</p>
+            <p>平均風速:<b>${data.list[n].wind.speed}</b> m/s</p>
+        </div>
+    `
+            }else{
+                newDiv.innerHTML = `
+        <div class="Eachline">
+            <div class="firstDiv">
+                <h2 class='titlehalf'>${ChangeTime(data.list[n].dt)}</h2>
+                <h1 class='titlehalf'>${data.list[n].weather[0].description}</h1>
+            </div>
+            <div class="secondDiv"><img class='imgInsecondDiv' src='https://openweathermap.org/img/wn/${data.list[n].weather[0].icon}@2x.png'></div>
+        </div>
+        <div class="Eachline">
+            <p><b>${data.list[n].main.temp_min.toFixed(1)}</b>&nbsp;&nbsp;~&nbsp;&nbsp;<b>${data.list[n].main.temp_max.toFixed(1)}</b> °C</p>
+            <p>體感溫度: <b>${data.list[n].main.feels_like.toFixed(1)}</b>°C</p>
+        </div>
+        <div class="Eachline">
+            <p>降雨機率:<b>${Math.round(data.list[n].pop*100)}</b>%</p>
+            <p>濕度:<b>${data.list[n].main.humidity}</b>%</p>
+        </div>
+        <div class="Eachline">
+            <p>最大陣風:<b>${data.list[n].wind.gust}</b> m/s</p>
+            <p>平均風速:<b>${data.list[n].wind.speed}</b> m/s</p>
+        </div>
+    
+`}
+            SearchResult.appendChild(newDiv);
+            const goal = document.getElementById(`${n}Box`);
+
+            goal.addEventListener('click',function(){
+                const CBlast =document.getElementById(`${n-2}Box`);
+                const Clast =document.getElementById(`${n-1}Box`);
+                const Cthis =document.getElementById(`${n}Box`);
+                const Cnext =document.getElementById(`${n+1}Box`);
+                const CAnext =document.getElementById(`${n+2}Box`);
+                if(this.classList.contains('oc') && n == 1 && Cnext && Cnext.classList.contains('oc')){
+                    Cthis.classList.remove('oc');
+                    Clast.classList.remove('hidden');
+                    Cnext.classList.remove('oc');
+                    //alert("1 點擊者有oc & = 1 & 下個有oc ,回原始狀態 消除下一個oc")
+                }else if(this.classList.contains('oc') && n == 1){
+                    Cthis.classList.remove('oc');
+                    Clast.classList.remove('hidden');
+                    //alert("2 點擊者有oc & = 1 回原始狀態")
+                }else if(this.classList.contains('oc') && n > 1 && CAnext && CAnext.classList.contains('oc')){
+                    Clast.classList.remove('hidden');
+                    CBlast.classList.remove('hidden');
+                    Cthis.classList.remove('oc');
+                    Cnext.classList.remove('oc');
+                    CAnext.classList.remove('oc');
+                    //alert("3 點擊者&n&na有oc & > 1 , 顯示前兩個 消除這個及後兩個oc")
+                }else if(this.classList.contains('oc') && n > 1 && Cnext !== null && Cnext.classList.contains('oc')){
+                    Clast.classList.remove('hidden');
+                    CBlast.classList.remove('hidden');
+                    Cthis.classList.remove('oc');
+                    Cnext.classList.remove('oc');
+                    //alert("4 點擊者&n有oc & > 1  ,顯示前兩個 消除這個和下一個oc")
+                }
+                else if(this.classList.contains('oc') && n > 1){
+                    Clast.classList.remove('hidden');
+                    CBlast.classList.remove('hidden');
+                    Cthis.classList.remove('oc');
+                    //alert("5 點擊者有oc > 1 ,顯示前兩個 消除這個oc")
+                }else if(!this.classList.contains('oc') && n == 1){
+                    Clast.classList.add('hidden');
+                    Cthis.classList.add('oc');
+                    //alert("6 這個不含oc = 1 這個增加oc 隱藏上一個")
+
+                }else if(!this.classList.contains('oc') && n > 1){
+                    Cthis.classList.add('oc');
+                    Clast.classList.add('hidden');
+                    CBlast.classList.add('hidden');
+                    //alert("7 這個不含oc > 1 這個增加oc 隱藏上一個及上上個")
+                };
+
+                if(data.list[n].weather[0].main == 'Rain'){
+                    document.body.classList.remove(document.body.classList);
+                    document.body.classList.add('BackImgRain');
+                };
+                if(data.list[n].weather[0].main == 'Clouds'){
+                    document.body.classList.remove(document.body.classList);
+                    document.body.classList.add('BackImgClouds');
+                };
+                if(data.list[n].weather[0].main == 'Clear'){
+                    document.body.classList.remove(document.body.classList);
+                    document.body.classList.add('BackImgClear');
+                };
+                
+            })
+    }
+
+};
+//轉換資料的unix time成為台灣時間
+function ChangeTime(Otime){
+    var date = new Date(Otime*1000);
+    var Cdate = date.getMonth()+1+"月"+date.getDate()+"  "+date.getHours()+":00";
+    return Cdate;
+}
+    
+</script>
+
+</body>
+</html>

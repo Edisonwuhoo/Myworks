@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>RSStoJSON應用</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: bisque;
+    }
+    .btngroup{
+        text-align: center;
+        margin: 2.5rem 0px 3rem 0px;
+    }
+    button{
+        margin: 0 0.8rem;
+        font-size: 1rem;
+        padding: 0.4rem 0.4rem;
+        border: 1.5px solid black;
+        border-radius: 5px;
+    }
+    button:focus{
+        background-color: rgb(232, 161, 55);
+        font-weight: 500;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    a:hover{
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+    }
+    a:visited{
+        color: rgb(98, 107, 114);
+    }
+    .newplace{
+        width: 100%;
+    }
+    #dataTable{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .arow{
+        width: 80%;
+        text-align: justify;
+        font-size: 1.3rem;
+        padding: 0.5rem 0px;
+
+    }
+    .brow{
+        width: 20%;
+        text-align: justify;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .container{
+        text-align: center;
+    }
+    p{
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .title{
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+</style>
+</head>
+    <body>
+    <div class="container">
+        <div class="title">
+            中央通訊社-最新報導總覽
+        </div>
+        <div class="btngroup">
+            <button id="Politics">政治新聞</button>
+            <button id="Mainland">兩岸新聞</button>
+            <button id="Intworld">國際新聞</button>
+            <button id="Finance">財經新聞</button>
+            <button id="Technology">科技新聞</button>
+            <button id="Lifehealth">生活新聞</button>
+            <button id="Social">社會新聞</button>
+            <button id="Local">在地新聞</button>
+            <button id="Culture">文化新聞</button>
+            <button id="Sport">運動新聞</button>
+            <button id="Stars">娛樂新聞</button>
+        </div>
+        <div class="newplace">
+            <table id="dataTable">
+                <tr><td style="font-size: 40px;">點擊按鈕獲取新聞列表</td></tr>
+            </table>
+        </div>
+        <p>資料以及相關版權出處：中央通訊社</p>
+    </div>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="main.js"></script>
+        </body>
+    </body>
+</html>

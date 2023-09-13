@@ -1,0 +1,54 @@
+.features{
+    //background-color: $color-grey-light-2;
+    grid-column: center-start / center-end;
+
+    margin: 15rem 0;
+
+
+    //if dont supports grid we set like this
+
+    @supports(display: grid){
+        display: grid;
+        //grid-template-columns: repeat(3, 1fr); 無法自適應 所以改成下面的選項
+        //auoto-fit會自動判斷所需的空間與格數 與minmax搭配可以來達到最好的rwd
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-template-rows: auto auto;
+        gap: 6rem;
+        align-items: start;
+    }
+    
+}
+
+
+.feature{
+    
+    //if dont supports grid we set like this
+    float: left;
+    width: 33.333333%;
+    margin-bottom: 6rem;
+
+    @supports(display: grid){
+        width: auto;
+        margin-bottom: 0;
+        //這邊的用意在於 如果支持網格系統 就抵銷上面float的行為 float需要設定寬度才能起作用 所以width auto mb0足以抵銷上述宣告
+    }
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    row-gap: 1.5rem;
+    column-gap: 2.5rem;
+
+    &__icon{
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1 / span 2;
+        //grid-row:1 / -1;這裡不能使用-1 因為我們實際上並沒有在容器上定義row,所以目前瀏覽器所刻畫出來的網格是隱式網格，-1這樣的用法只適用於顯式網格，也就是有明確定義的網格
+        transform: translateY(-1rem);
+
+    }
+
+    &__text{
+        font-size: 1.7rem;
+    }
+}

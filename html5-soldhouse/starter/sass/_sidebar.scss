@@ -1,0 +1,55 @@
+.sidebar{
+    background-color: $color-primary;
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1;
+    
+    display: flex;
+    justify-content: center;
+
+    @media only screen and (max-width:$bp-large) {
+       grid-column: 1 / -1;
+       grid-row: 1 / 2;
+       justify-content: flex-end;
+       align-items: center;
+
+    }
+}
+
+.nav-btn{
+    border: none;
+    border-radius: 0;
+    background-color: #fff;
+    height: 2px;
+    width: 4.5rem;
+    margin-top: 4rem;
+
+    &::after,
+    &::before{
+        content: "";
+        background-color: #fff;
+        height: 2px;
+        width: 4.5rem;
+        display: block;
+    }
+
+    &::after{
+        transform: translateY(-1.5rem);
+
+    }
+
+    &::before{
+        transform: translateY(1.3rem);//這個偏移的量和上面不同的原因是因為 計算偏移量的起始點在於本體 但是本體有個2px的高度！所以向上向下 一個距離會將本體算在內 一個則不會
+
+    }
+
+    @media only screen and (max-width:$bp-large) {
+        margin-top: 0;
+        margin-right: 3rem;
+
+        &::after{transform: translateY(-1.2rem);}
+        &::before{transform: translateY(1rem);}
+        //縮小三條槓槓的艱鉅
+ 
+     }
+
+}

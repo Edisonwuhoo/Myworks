@@ -1,0 +1,29 @@
+img{
+    margin-top: 20px;
+    width: 33%;
+    height: 630px;
+    border: 2px solid rgb(175, 174, 174);
+}
+html{
+   background-color: black;
+    
+}
+.op{
+    text-align: center;
+}
+button{
+    display: block;
+    margin: 10px auto;
+    width: 75px;
+    height: 35px;
+    background-color: rgba(91, 88, 88, 0.911);
+    color: rgb(242, 176, 9);
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+span{
+    color: rgb(105, 105, 95);
+    margin: 0 auto;
+}

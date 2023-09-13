@@ -1,0 +1,39 @@
+Video{
+    border: 2px solid black;
+}
+#progressBar{
+    width: 300px;
+    color: bisque;
+}
+#container{
+    width: 100%;
+    height: 100%;
+    margin-top: 1%;
+    text-align: center;
+}
+body{
+    background-color: bisque;
+}
+.firstDiv{
+    width: 640px;
+    margin: 0.2rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    background-color: rgba(245, 222, 179, 0);
+    border: none;
+    font-size:1rem;
+}
+button:hover{
+    transform: scale(1.3);
+}
+p{
+    display: inline;
+    position: relative;
+    top: -0.3rem;
+}
+h1{
+    font-size: 2rem;
+    font-weight: 450;
+}

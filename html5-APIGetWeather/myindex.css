@@ -1,0 +1,180 @@
+
+html,body,*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Klee One', cursive;
+}
+#way{
+    position: absolute;
+    left:calc( 50% - 60px );
+    top: 110px;
+}
+#NowLocation{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+}
+#PlaceSelect{
+    background-color: rgba(240, 248, 255, 0);
+    color:inherit;
+    width: 120px;
+    border: none;
+    border-bottom: 2px solid;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Klee One', cursive;
+    appearance: none; 
+    /* 選項勾勾 */
+    padding: 3px;
+    text-align: center;
+    outline: none;
+}
+#SearchResult{
+    display: flex;
+    overflow: hidden;
+}
+header{
+    margin-top: 50px;
+    text-align: center;
+}
+.secondDiv{
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+}
+.firstDiv{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.imgInsecondDiv{
+    width: 125px;
+}
+.titlehalf{
+    width: 200px;
+}
+.weaContainer{
+    font-weight: 500;
+    margin: 100px 40px 60px 40px;
+    border-radius: 5px;
+    color: rgb(220, 213, 213);
+    background-color: rgba(174, 171, 171, 0.284);
+    display: flex;
+    width: 400px;
+    height: auto;
+    flex-wrap: wrap;
+    text-align: center;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+b{
+    font-size: 20px;
+    font-weight: 400;
+}
+.b2{
+    font-size: 18px;
+    font-weight: 400;
+}
+.weaContainer:hover{
+    background-color: rgba(174, 171, 171, 0.501);
+    transform: scale(1.02);
+    cursor:pointer;
+    color: rgb(243, 243, 243);
+    
+}
+.weaContainer:active{
+    color: rgb(156, 166, 166);
+}
+
+.Eachline{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    margin: 18px 20px;
+}
+body{
+   color: rgb(112, 110, 110);
+   
+}
+
+.BackImgRain{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://images.unsplash.com/photo-1498847559558-1e4b1a7f7a2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+    transition: 1s;
+    color: azure;
+    font-family: 'Klee One', cursive;
+}
+.BackImgClouds{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://images.unsplash.com/photo-1528157377481-b010149f0e4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80");
+    transition: 0.7s;
+    color: rgb(74, 73, 73);
+    font-family: 'Klee One', cursive;
+
+}
+.BackImgDefault{
+    background-image: url("https://images.unsplash.com/photo-1487621167305-5d248087c724?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1s;
+    font-family: 'Klee One', cursive;
+}
+.BackImgClear{
+    background-image: url("https://images.unsplash.com/photo-1601297183305-6df142704ea2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 1s;
+    color: azure;
+    font-family: 'Klee One', cursive;
+}
+.hidden{
+    display: none;
+}
+button{
+    background-color: inherit;
+    font-size: 22px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    padding: 30px 20px;
+    color: inherit;
+    position: absolute;
+    left: calc(50% + 50px);
+    top: -30px;
+}
+button:active{
+    color:azure;
+    cursor: wait;
+}
+button:hover{
+    animation:  bobo 0.9s cubic-bezier(.5,.2,.8,.8) infinite;
+}
+
+
+@keyframes bobo{
+    0%{
+        top:-30px;
+    }
+    40%{
+        top:-42px;
+   
+    }
+    60%{
+        top:-30px;
+        
+    }
+    75%{
+        top:-35px;
+      
+    }
+    100%{
+        top:-30px;
+    }
+   
+}
+
+

@@ -1,0 +1,36 @@
+@mixin clearfix{
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin absCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+//media query manager
+// 0-600 phone                       -phone
+// 600-900 tablet portrait           -tab-por
+// 900-1200 tablet landscape         -tab-lan
+// 1200-1800 也就是開發時使用的大小      
+//  1800以上  big desktop             -big-des
+
+@mixin respond($breakpoint){
+    @if $breakpoint == phone{
+        @media only screen and (max-width:37.5rem){@content};//600
+    }
+    @if $breakpoint == tab-por{
+        @media only screen and (max-width:56.25rem){@content};//900
+    }
+    @if $breakpoint == tab-lan{
+        @media only screen and (max-width:75rem){@content};//1200
+    }
+    @if $breakpoint == big-des{
+        @media only screen and (min-width:112.5rem){@content};
+    }
+}

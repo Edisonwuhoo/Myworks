@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>影片控制器</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />    
+        
+    </head>
+<body>
+        
+     
+        <div id="container">
+            <h1>影片控制按鈕</h1>
+        <video src="" id="myVideo" width="640" height="480"></video>
+        <br>
+        <div class="firstDiv">
+            <div>
+                <button id="playBtn">
+                    <span class="material-symbols-outlined aa"> play_arrow</span>
+                </button>
+                <button id="muteVoice">
+                    <span class="material-symbols-outlined bb">volume_off</span>
+                </button>
+            </div>
+            
+            <div>
+                <p>音量:<span id="voiceDisplay" >100%</span></p>
+                <button id="lowerVoice">
+                    <span class="material-symbols-outlined">arrow_drop_down</span>
+                </button>
+                <button id="higherVoice">
+                    <span class="material-symbols-outlined">arrow_drop_up</span>
+                </button>
+                <button id="fullBtn">
+                    <span class="material-symbols-outlined">fullscreen</span>
+                </button>
+            </div>
+          
+        </div>
+        <div>
+            <span id="timeDisplay"></span><br>
+            <input type="range" id="progressBar" min="0" value="0">
+        </div>
+
+    </div>
+        
+    <script src="//unpkg.com/jquery"></script>
+    <script src="main.js"></script>
+</body>
+</html>

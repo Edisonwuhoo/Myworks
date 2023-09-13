@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>讀取檔案內容</title>
+    <style>
+        #dropbox{
+            width: 300px;
+            height: 35px;
+            padding: 40px;
+            color: white;
+            background-color: darkgray;
+            font-size: 24px;
+            text-align: center;
+            position: absolute;
+            top: calc(20% - 60px);
+            left: calc(50% - 190px);
+            border-radius: 15px;
+        }
+        #preview{
+            font-size: 24px;
+            position: absolute;
+            top: calc(60% - 209.5px);
+            left: calc(50% - 373.75px);
+        }
+        body{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropbox">
+        將.text檔案拖曳至此
+    </div>
+    <textarea  id="preview" cols="50" rows="15"></textarea>
+    <script src="//unpkg.com/jquery"></script>
+    <script src="main.js"></script>
+</body>
+</html>

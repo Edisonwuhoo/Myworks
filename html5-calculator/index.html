@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="container">
+        <div class="conculator">
+            <form action="">
+                <div class="answerBar">
+                    <input type="text" name="answer" id="answerBar" maxlength="11">
+                </div>
+                <div>
+                    <input type="button" id="ac"  value="AC" onclick="answer._value = ''">
+                    <input type="button" id="atype" value="+/-" onclick="answer._value = -answer._value.replace(/,/g,'')">
+                    <input type="button" id="atype" value="％" onclick="answer._value = answer._value.replace(/,/g,'') / 100"> <!--這個是除100 -->
+                    <input type="button" id="btype" value="／" onclick="answer._value += '/'">
+                </div>
+                <div>
+                    <input type="button" value="7" onclick="answer._value += '7'">
+                    <input type="button" value="8" onclick="answer._value += '8'">
+                    <input type="button" value="9" onclick="answer._value += '9'"> 
+                    <input type="button" id="btype" value="✕" onclick="answer._value += '*'">
+                </div>
+                <div>
+                    <input type="button" value="4" onclick="answer._value += '4'">
+                    <input type="button" value="5" onclick="answer._value += '5'">
+                    <input type="button" value="6" onclick="answer._value += '6'">
+                    <input type="button" id="btype" value="－" onclick="answer._value += '-'">
+                </div>
+                <div>
+                    <input type="button" value="1" onclick="answer._value += '1'">
+                    <input type="button" value="2" onclick="answer._value += '2'">
+                    <input type="button" value="3" onclick="answer._value += '3'">
+                    <input type="button" id="btype" value="＋" onclick="answer._value += '+'">
+                </div>
+                <div>
+                    <input type="button" value="0" id="isZero" onclick="answer._value += '0'">
+                    <input type="button" value="." onclick="answer._value += '.'">
+                    <input type="button" value="＝" id="equal" onclick="answer._value =eval(answer._value.replace(/,/g,''))">
+                 
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+window.onload = function() {
+    console.log("lets star");
+var myinput = document.getElementById('answerBar');
+
+function oninputCallback() {
+    console.log('oninput event ');
+}
+
+function onchangeCallback() {
+    console.log('onchange event');
+}
+function maxLengthNine(){
+    if(myinput.value.replace(/,/g,"").replace(/\+/g,"").replace(/\./g,"").length > "9"){
+        alert("超過最大運算"+myinput.value);
+    if(myinput.value.includes(".")){
+        alert("this is  none good");
+        myinput.value = myinput.value.replace(/,/g,"").slice(0,10);
+        console.log("oh my god now is" + myinput.value)
+    }else{
+        myinput.value = myinput.value.replace(/,/g,"").slice(0,9);
+    }
+    console.log("mama"+myinput.value.replace(/,/g,"").slice(0,9));
+
+}
+
+}
+
+myinput.addEventListener('oninput', oninputCallback, false);
+myinput.addEventListener('onchange', onchangeCallback, false);
+
+Object.defineProperty(myinput, '_value', {
+    configurable: true,
+    set: function(value) {
+        this.value = value;
+        oninputCallback();
+        onchangeCallback();
+        maxLengthNine();
+    },
+    get: function() {
+        return this.value;
+    }
+});
+};
+function goo(){
+var Answer = document.getElementById("answerBar");
+var what = Answer.value;
+
+if(what != ""){
+    document.getElementById('ac').value = 'C';
+}else{
+    document.getElementById('ac').value = 'AC';
+};
+
+if(what.replace(/,/g,"") > 999999 || what.replace(/,/g,"") < -999999){
+   console.log(what);
+   what = what.replace(/,/g,"").slice(0,-6) + "," + what.replace(/,/g,"").slice(-6,-3) + "," + what.replace(/,/g,"").slice(-3);
+    Answer.value = what;
+};
+if(what.replace(",","") > 999 || what.replace(",","") < -999){ 
+   
+    what = what.replace(",","").slice(0,-3) + "," + what.replace(",","").slice(-3);
+    Answer.value = what;
+};
+};
+
+
+window.setInterval(goo,200);
+
+</script>
+</html>

@@ -1,0 +1,23 @@
+canvas{
+    border: 5px solid black;
+    position: absolute;
+    top:calc(50% - 50px);
+    left: calc(50% - 240px);
+}
+body{
+    background-color: azure;
+}
+input{
+    position: absolute;
+    width: 22rem;
+    font-size: 3rem;
+    top: calc(30% - 10px);
+    left: calc((50% - 176px));
+}
+p{
+    position: absolute;
+    font-size: 1.5rem;
+    left: calc(50% - 156px);
+    top: 17%;
+    
+}

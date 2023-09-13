@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMDB API應用</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="movieWorkCss.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="flex justsb">
+    <h1 class="logo">
+      <a href="">
+      Better Watch
+      </a>
+    </h1>
+    <form action="" id="myForm">
+      <input type="text" name="searchFor" id="searchFor" onfocus="searchShow()"; onblur='searchHide()' />
+      <span class="material-symbols-outlined">search</span>
+    </form>
+
+
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  
+    <input type="radio"  class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"  onclick="getMovies(ThisYearPageUrl)"/>
+    <label class="btn btn-outline-secondary" for="btnradio1">this years</label>
+    
+    <input type="radio"  class="btn-check"  name="btnradio"  id="btnradio2"  autocomplete="off"  onclick="getMovies(TheseThreeYearsPageUrl)"/>
+    <label class="btn btn-outline-secondary" for="btnradio2">past 3 years</label>
+    
+    <input type="radio"  class="btn-check"  name="btnradio"  id="btnradio3"  autocomplete="off"  onclick="getMovies(TheseTenYearsPageUrl)"/>
+    <label class="btn btn-outline-secondary" for="btnradio3">past 10 years</label>
+    </div>
+  </header>
+  <main id="mainPlace"></main>
+  <footer>
+    <h5>
+      This pen uses the TMDb API but is not endorsed or certified by TMDb.
+    </h5>
+  </footer>
+
+
+<script>
+  const EdisonTMDBkey = "38b4c0ac71eee830efb713d093f2dbcf";
+  
+  const TheseThreeYears = "primary_release_date.gte=2020-01-01&";
+  const TheseTenYears = "primary_release_date.gte=2013-01-01&";
+  const ThisYear = "primary_release_date.gte=2023-01-01&";
+  
+  const defaultPageUrl = `https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&sort_by=vote_count.desc&api_key=${EdisonTMDBkey}`;
+  const ThisYearPageUrl = `https://api.themoviedb.org/3/discover/movie?language=en-US&${ThisYear}page=1&sort_by=vote_count.desc&api_key=${EdisonTMDBkey}`;
+  const TheseThreeYearsPageUrl = `https://api.themoviedb.org/3/discover/movie?language=en-US&${TheseThreeYears}page=1&sort_by=vote_count.desc&api_key=${EdisonTMDBkey}`;
+  const TheseTenYearsPageUrl = `https://api.themoviedb.org/3/discover/movie?language=en-US&${TheseTenYears}page=1&sort_by=vote_count.desc&api_key=${EdisonTMDBkey}`;
+  const SearchPageUrl = `https://api.themoviedb.org/3/search/movie?api_key=${EdisonTMDBkey}&query=`;
+
+  const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
+  const mainPlace = document.getElementById("mainPlace");
+  const myForm = document.getElementById("myForm");
+  const searchFor = document.getElementById("searchFor");
+  
+  
+  
+  
+  const getClassByRate = (vote) => {
+    if (vote >= 8) return "redC";
+    else if (vote >= 7.5) return "secondC";
+    else return "thirdC";
+  };
+
+ //計算標題長度如果大於div,滑鼠經過時滾動
+ const coolfun =function(){
+    const titleSelfs = document.getElementsByClassName('titleSelf');
+    console.log("titleSelfs",titleSelfs);
+    for(let i = 0; i < titleSelfs.length; i++){
+      const titleSelfsForWidth = titleSelfs[i];
+      const titleWidth = titleSelfsForWidth.offsetWidth;
+      //console.log(titleSelfsForWidth)
+      //console.log("titleWidth",titleWidth)
+      if(titleWidth > 250){
+        //console.log("title[i]",titleSelfsForWidth);
+        titleSelfsForWidth.classList.add('textforscroll')
+      }
+    }
+  };
+
+  const paayu = function(){
+    const mymuv = document.getElementsByClassName('movie');
+    const changea = document.getElementsByClassName('a');
+    const changeb = document.getElementsByClassName('b');
+    const changec = document.getElementsByClassName('c');
+    const changed = document.getElementsByClassName('d');
+    for(let m = 0;m < mymuv.length; m++){
+      const mymuvNum = mymuv[m];
+      const mymuvANum = changea[m];
+      const mymuvBNum = changeb[m];
+      const mymuvCNum = changec[m];
+      const mymuvDNum = changed[m];
+      //console.log(mymuvNum);
+      if(m < 3){
+        mymuvDNum.classList.add('firstC')
+      }
+      if(m > 2 && m < 6){
+        mymuvDNum.classList.add('secondC')
+      }
+      if(m > 5){
+        mymuvDNum.classList.add('thirdC')
+      }
+      mymuvNum.addEventListener("mouseenter",function(){
+        //mymuvANum.classList.add('show');
+        mymuvANum.classList.remove('a')
+        mymuvCNum.classList.add('hidden')
+      });
+      mymuvNum.addEventListener('mouseleave',function(){
+        mymuvANum.classList.add('a');
+        mymuvCNum.classList.remove('hidden');
+      })
+    }
+
+  }
+
+  const searchShow = function(){
+    searchFor.placeholder = "輸入電影名稱並按下enter";
+    var apoe = document.getElementsByClassName('material-symbols-outlined');
+    apoe[0].classList.add('hidden');
+  }
+  const searchHide = function(){
+    searchFor.placeholder = "";
+    var apoe = document.getElementsByClassName('material-symbols-outlined');
+    apoe[0].classList.remove('hidden')
+
+  }
+
+  const showMovies = (movies) => {
+    mainPlace.innerHTML = ""; //這步驟再重新洗白main區域 再插入搜尋後 或是預設結果 如果沒有使用 搜尋結果會一直疊加上去
+    movies.forEach((movie) => {
+      const { title, poster_path, vote_average, overview, vote_count,backdrop_path,tagline,id } = movie;
+      const movieElement = document.createElement("div");
+      movieElement.classList.add("movie");
+      movieElement.innerHTML = `
+      <div class="changeVote">
+        <span class="a">
+          <strong class="${getClassByRate(vote_average)}  b">${vote_average}</strong>分
+          </span>
+          <span class="c">
+            <strong class="d">${vote_count}</strong>票
+        </span>
+      </div>
+      <img src="${IMG_PATH + poster_path}" alt="${title}"/>
+      <div>
+        <h3 class="titleSelf">${title}</h3>
+      </div>`;
+
+      movieElement.addEventListener("click",function(){
+        //console.log(movie.id);
+        letgo(movie);
+      });
+    
+      mainPlace.appendChild(movieElement);//上面指示const 這邊才是加進來  
+      
+    });
+
+    function letgo(movie){     
+      //console.log(movie)
+      const CoolTagUrl = `https://api.themoviedb.org/3/movie/${movie.id}?api_key=${EdisonTMDBkey}`;
+      MovieDetail(CoolTagUrl);
+    }
+    coolfun();
+    //寫在這邊才有
+    paayu();
+  };
+  
+  const getMovies = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+    const tagData = data.results.slice(0,10);
+    //data就是跑出結果的array
+    showMovies(tagData);
+  };
+
+  const MovieDetail =async(CoolTagUrl)=>{
+    const Mres = await fetch(CoolTagUrl);
+    const Mdata = await Mres.json(); 
+    //console.log(Mdata);
+    const MdataGenres = Mdata.genres.map(genre=>genre.name);
+    const MdataProductions = Mdata.production_companies.map(company=>company.name)
+    const infoWindow = document.createElement('div');
+    const infoWindowEle = document.getElementsByClassName('info-window');
+    if(document.getElementsByClassName('info-window').length){
+      console.log(infoWindowEle[0]);
+      infoWindowEle[0].parentNode.removeChild(infoWindowEle[0]);
+    }else{
+      //console.log(document.getElementsByClassName('info-window'))
+      infoWindow.innerHTML =`
+      <div class="flex DetailContainer">
+        <div class="moviePicture">
+            <img class='PicInDetail' src="${IMG_PATH+Mdata.poster_path}" alt="${Mdata.title}">
+        </div>
+        <div class="movieDetail">
+            <h2 class="fb ffp mgb">${Mdata.title}</h2>
+            <p class="Mgreen f25 mgb">${Mdata.tagline}</p>
+            <p class='ffp mgbB'>${Mdata.overview}</p>
+            <div>
+                <p class="Mgreen f22 mgb">${MdataGenres}</p>
+                <p class="f19 ffp mgbB">${MdataProductions}</p>
+                <div class="flex">
+                    <div class="w50">
+                        <span class="f19">Original Release:</span>
+                        <p class="Mgreen f25">${Mdata.release_date}</p>
+                    </div>
+                    <div class="w50">
+                        <span class="f19">Running Time:</span>
+                        <p class="Mgreen f25">${Mdata.runtime}mins</p>
+                    </div>
+                    <div class="w50">
+                        <span class="f19">Box Office:</span>
+                        <p class="Mgreen f25">$${Mdata.revenue}</p>
+                    </div>
+                    <div class="w50">
+                        <span class="f19">Vote Average:</span>
+                        <p class="Mgreen f25">${Mdata.vote_average} / 10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>`;
+      //console.log(Mdata.genres[0].name)
+      infoWindow.classList.add('info-window');
+      document.body.appendChild(infoWindow);
+    };
+    document.body.addEventListener("click", function(){
+      if(document.getElementsByClassName('info-window').length){
+        infoWindowEle[0].parentNode.removeChild(infoWindowEle[0])
+      }
+    })
+  };
+  
+  getMovies(defaultPageUrl);
+  myForm.addEventListener("submit",function(event){
+    console.log("!!!!"+event);
+    event.preventDefault();
+    const SearchDataWord = searchFor.value;
+    if(SearchDataWord && SearchDataWord !=""){
+      getMovies(SearchPageUrl+SearchDataWord);
+      searchFor.value="";
+      
+    } else history.go();
+  });
+
+</script>
+</body>
+
+</html>

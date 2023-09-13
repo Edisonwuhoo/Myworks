@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>算命小遊戲</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Klee One', cursive;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgb(179, 13, 13), rgb(230, 230, 40), rgb(54, 219, 54));  
+            font-size: 62.5%;
+            
+        }
+        body{
+            font-size: 62.5%;
+        }
+        div{
+            text-align: center;
+            margin: 10% auto;
+        }
+        input{
+            width: 15%;
+            height: 3rem;
+            margin: auto;
+            border: 2px solid black;
+            background-color: #f7f7f7;
+            outline: none;
+            text-align: center;
+            font-size: 1.6rem;
+        }
+        input:hover{
+            background-color: rgb(247, 247, 247);
+            color: black;
+            font-weight: bolder;
+            border: 2px solid black;
+          
+        }
+        button{
+            margin: auto;
+            margin-top: 20px;
+            width: 4rem;
+            height: 3.5rem;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+        .topic{
+            font-size: 2.8rem;
+            font-weight: 600;
+        }
+        .HeadEmoji{
+            margin-top: 2rem;
+            font-size: 8rem;
+        }
+        .UserName{
+            font-size: 3rem;
+            font-weight: 400;
+        }
+        .description{
+            margin-top: 1rem;
+            font-size: 2rem;
+            padding: 0px 33%;
+
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p class="topic">輸入你要取名字,我幫你算這名字未來的長相</p>
+    <input id="userInput" type="text" placeholder="輸入姓名"> <button>算命</button>
+    <p class="HeadEmoji"></p>
+    <p class="UserName"></p>
+    <p class="description"></p>
+</div>
+
+    <script src="//unpkg.com/jquery"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body{
+    text-align:center;
+    background-color: black;
+    color:gainsboro
+}
+h3{
+    /*預留歌曲名稱顯示空間*/
+    height:32px;
+    font-size: 1.5rem;
+    color: grey;
+}
+
+input{
+    width: 4rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: rgba(147, 147, 147, 0.562);
+    color: rgb(249, 245, 238);
+    border: none;
+    border-radius: 5px;
+    margin-top: 1.8rem;
+}
+input:hover{
+    color: rgba(48, 48, 48, 0.785) ;
+    background-color:  rgb(161, 161, 161);
+}

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習hiking note
+
+    </title>
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="hikingNote.css">
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+<script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  
+
+ 
+    <nav class="navbar navbar-expand-sm navbar-light bg-light" style="border-bottom: 1px 
+    rgba(157, 155, 155, 0.45) solid;padding: 20px 50px 15px 50px;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#" style="font-size: xx-large;word-spacing: -5px;"><b class="fontcolor" style="font-size: xx-large;">健行</b> 筆記</a>
+          <form class="d-flex">
+            <input class="form-control" style="background-color:#f5f5f5;" type="search" placeholder="輸入關鍵字 搜索全站" aria-label="Search">
+            <a href="">
+
+              <span class="material-symbols-outlined mt-auto navbar" style="margin-left: -35px;">
+                search
+              </span>
+            </a>
+          </form>
+          <div class="me-auto" style="margin-left: 20px;">
+            <div class="searchkeyword">熱門關鍵字</div>
+            <a href="" class="fontcolor">走遍陽明山尋寶任務</a>
+            <a href="" class="fontcolor">2023年臺北大縱走</a>
+          </div>
+
+          <div class="navbar-nav">
+            <span class="material-symbols-outlined nav-link">
+              account_circle
+              </span>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fontcolor" style="border: 1px solid;border-radius:25px;"  data-bs-toggle="dropdown" href="#">+我要分享</a>
+              <ul class="dropdown-menu">
+                <li><a href="" class="dropdown-item">上傳照片</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="" class="dropdown-item">上傳GPX</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="" class="dropdown-item">分享心得</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="" class="dropdown-item">提供路線</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a href="" class="dropdown-item">今天去哪兒</a></li>
+                
+              </li>
+            </div>
+          </div>
+
+
+        
+      </nav>
+      <nav class="navbar navbar-expand-sm navbar-light bg-light" style="box-shadow:rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; ;">
+        <div class="container-fluid">
+          <!-- collapse navbar-collapse 代表小於一定寬度(navbar-expand-sm)會被折疊掉（隱藏的部分） -->
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">路線</a>
+                <ul class="dropdown-menu">
+                  <li><a href="" class="dropdown-item">找路線</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">主題路線</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">GPX</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">路況回報</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">路線討論</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">台灣名山</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">山岳</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">山屋</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">植物</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">地點</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">精選文章</a>
+                <ul class="dropdown-menu">
+                  <li><a href="" class="dropdown-item">全部文章</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">新聞時事</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">產品活動</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">登山知識</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">路線旅遊</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">生態環境</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">人文歷史</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">山友分享</a>
+                <ul class="dropdown-menu">
+                  <li><a href="" class="dropdown-item">心得</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">相簿</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">今天去哪兒</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">主題活動</a>
+                <ul class="dropdown-menu">
+                  <li><a href="" class="dropdown-item">線上活動</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">主題遊程</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">區域步道旅行地圖</a></li>
+                </ul>
+              </li>
+              <a class="nav-link" href="#">專輯</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"  data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">商品</a>
+                <ul class="dropdown-menu">
+                  <li><a href="" class="dropdown-item">健行購物</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a href="" class="dropdown-item">乾糧兌換</a></li>
+                </ul>
+              </li>
+              <a class="nav-link fontcolorred" href="#" >2023台北大縱走</a><span class="fontcolorred material-symbols-outlined navbar-text">
+                arrow_circle_right
+                </span>
+              <a class="nav-link fontcolorred" href="#" >走遍陽明山尋寶</a><span class="fontcolorred material-symbols-outlined navbar-text">
+                arrow_circle_right
+                </span>
+              
+            </div>
+          </div>
+
+
+        </div>
+      </nav>
+
+
+  <div class="container">
+    <div class="firstSpace">
+      <div class="firstleft">
+        <a href="" class="apple">
+          <img class="imgfit" src="https://images.unsplash.com/photo-1682241229580-e72acdf0eb6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+          <div>
+            <h5 style="position: absolute;bottom: 5px;left: 20px;color: white;margin-right: 15px;font-size: 18px;">【野溪溫泉】陡上陡下的轆轆溫泉 操爆大腿肌行程</h5>
+          </div>
+        </a>
+      </div>
+      <div class="firstright">
+        <a href="" class="bpple">
+
+          <img class="imgfit" src="https://images.unsplash.com/photo-1682222925217-40650cf10cdd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="">
+          <div>
+            <h5 style="position: absolute;bottom: 5px;left: 20px;color: white;margin-right: 15px;font-size: 18px;">【澀水森林步道】南投魚池鄉秘境  有如走入侏儸紀公園場景</h5>
+          </div>
+        </a>
+        <a href="" class="cpple">
+
+          <img class="imgfit" src="https://images.unsplash.com/photo-1681767892373-f1af9a264226?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="">
+          <div>
+            <h5 style="position: absolute;bottom: 5px;left: 20px;color: white;margin-right: 15px;font-size: 18px;">【新聞】董紅娟登頂14座8000米高峰 全球女性第1人</h5>
+          </div>
+        </a>
+        <a href="" class="dpple">
+
+          <img class="imgfit" src="https://images.unsplash.com/photo-1682167175858-bc7d1c1329bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="">
+          <div>
+            <h5 style="position: absolute;bottom: 5px;left: 20px;color: white;margin-right: 15px;font-size: 18px;">【衣測】涉足4000公里的狂想—徒步太平洋屋脊步道</h5>
+          </div>
+        </a>
+        <a href="" class="epple">
+
+          <img class="imgfit" src="https://images.unsplash.com/photo-1681939692321-6c223ff53908?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+          <div>
+            <h5 style="position: absolute;bottom: 5px;left: 20px;color: white;margin-right: 15px;font-size: 18px;">中央山脈大縱走 12天11夜行程參考</h5>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="secondSpace">
+      <div class="secondleft">
+        <div class="oo">
+          <h5 class="kk">熱門</h5>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img  class="imgfitg" src="https://images.unsplash.com/photo-1682092562792-08186fce3798?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+            <h4>紫明溪步道連走四瀑─陽明書屋站→紫明溪步道→玉瀧谷→大屯瀑布→小隱潭→橫嶺古道→半嶺圳步道→松溪瀑布→翠峰瀑布→天母古道</h4>
+            <p>去年(2022)用四天分四次完走台北大縱走七段(12連走，34連走，5來回，67連走)
+              原本今年不打算再特別花時間走台北大縱走，但今年毛巾設計有吸引我(2023年台北大縱走紀念品網頁)
+              加以劍潭起登，交通便利，既然天氣大好，就衝一波吧 
+              0525圓山風景區開始今天的挑戰
+            </p>
+            </div>
+          </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img  class="imgfitg" src="https://images.unsplash.com/photo-1682207151108-2dca7212f0eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【攻略】2023 大甲媽祖繞境 攻略全解析</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi neque magni error illo vero necessitatibus nemo excepturi a deleniti exercitationem tenetur nobis, consectetur quia ratione vel! Voluptas cumque pariatur saepe!</p>
+              </div>
+          </a>
+
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+          <img  class="imgfitg" src="https://images.unsplash.com/photo-1682178813848-2d31cb3b49e0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1772&q=80" alt="">
+          <div style="background-color: white;border-radius: 5px;">
+            <h4>今天，我想挑戰→連走台北大縱走54321(劍潭→關渡)</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quae corrupti sint aliquid quam modi animi ullam provident placeat. Molestias quia impedit earum hic? Tempora minima facilis aspernatur perferendis! Qui!</p>
+            </div>
+          </a>
+        </div>
+
+        
+        <div class="oo">
+          <h5 class="kk">新聞</h5>
+          <a class="bb" href="#">看更多</a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://images.unsplash.com/photo-1682336017038-de632a4ec2b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【新聞】董紅娟登頂14座8000米高峰 全球女性第1人</h4>
+              <p>Lorem ipsum Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nobis et! Harum ullam dolore eum vero! Nostrum, sed! Voluptatum officia doloremque nam laborum ipsa earum quo perspiciatis doloribus aspernatur rerum. sit amet.</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【新聞】花蓮卓溪台灣黑熊受困陷阱 左前肢壞死截肢擇期野放</h4>
+              <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero debitis, sint tempore itaque delectus enim dolorum totam velit rem cumque maxime iste perspiciatis autem est doloribus? Facilis quos veritatis quibusdam. adipisicing elit. Deleniti?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://images.unsplash.com/photo-1682327724284-9329ba6800a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【新聞】不再隱形的山屋 新觀高避難山屋新建及周邊設施整修工程</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam veniam cupiditate voluptates assumenda voluptatibus dolores quae quasi cumque reprehenderit reiciendis nam quia hic ad impedit aliquam, obcaecati repudiandae sapiente a? elit.</p>
+              </div>
+            </a>
+        </div>
+        
+        <div class="oo">
+          <h5 class="kk">知識</h5>
+          <a  href="#" class="bb">看更多</a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://plus.unsplash.com/premium_photo-1682175064711-2e2870132d9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【山知識】你知道哪個縣市擁有最多的百岳嗎？哪個鄉鎮擁有最多的百岳嗎？</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://images.unsplash.com/photo-1682018667453-b8d127e055b9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1775&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【山知識】山屋終於不是紅色了！國家公園新山屋特輯</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://images.unsplash.com/photo-1604537466158-719b1972feb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【攻略】2023 大甲媽祖繞境 攻略全解析
+              </h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        
+        <div class="oo">
+          <h5 class="kk">產品活動</h5>
+          <a  href="#" class="bb">看更多</a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img src="https://plus.unsplash.com/premium_photo-1666324044313-f065f1a7a766?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitg" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【賽事】TNF100 LNT 無痕山林地球日：攜手巡護山林不落人後！</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitg" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【品牌動態】Columbia 春夏超機能穿搭 當個「型」之有理的戶外生活實踐家</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img src="https://images.unsplash.com/photo-1573126617899-41f1dffb196c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitg" alt="">
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【裝備】繞境裝備怎麼帶？大甲媽祖穿搭一次看！</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        
+        <div class="oo">
+          <h5 class="kk">活動</h5>
+          <a  href="#" class="bb">看更多</a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img class="imgfitg" src="https://images.unsplash.com/photo-1682547095701-c6f1daa00c59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+            
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【活動】行腳陽明山 特派員募集</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img  class="imgfitg" src="https://images.unsplash.com/photo-1682530016940-1a39be2b95ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+           
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【講座】谷關七雄登山安全講習開放報名 面面俱到守護山友安全</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore provident, quae odio ut dolor officia tempora velit, cum quo dicta earum voluptatum perspiciatis explicabo quia eius architecto necessitatibus assumenda rerum?</p>
+              </div>
+            </a>
+        </div>
+        <div class="myboxone">
+          <a href="" style="width: 100%;">
+            <img  class="imgfitg" src="https://images.unsplash.com/photo-1682533945500-9e7012432f75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+            
+            <div style="background-color: white;border-radius: 5px;">
+              <h4>【活動】全新活動！2023 大甲媽祖繞境寶石任務 期間限定寶石、徽章 等你來蒐集～</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, vero sunt! Quibusdam, iusto corporis incidunt quo delectus, excepturi ex magni impedit sunt pariatur voluptatum. Harum nemo labore obcaecati nobis cum.</p>
+              </div>
+            </a>
+        </div>
+        
+      </div>
+      <div class="secondright">
+        <div class="rightbox"></div>
+        <div class="rightbox"></div>
+        <div class="rightbox">
+          <h5 style="font-size: 18px;color: black;">上週排行榜</h5>
+          <div>
+            <ul style="display:flex;list-style: none;text-align: center;justify-content: space-evenly;">
+              <li style="border-bottom: #1Ea569 solid 2px;padding: 0px 20px;color:#1Ea569" class="oka">相簿排名</li>
+              <li style="border-bottom: rgb(194, 194, 194) solid 2px;padding: 0px 20px;" class="okb">心得排名</li>
+            </ul>
+            <ul style="list-style: none;" class="album">
+              <li style="border-bottom: rgb(225, 224, 224) solid;">
+                <a href="" style="display: flex;padding: 15px 0px;align-items: center">
+                  <div style="flex-grow: 1;">
+                    <img class="imgfito" src="https://images.unsplash.com/photo-1683315226902-fccfb8bd2693?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80" alt="">
+                  </div>
+                  <div style="flex-grow: 1;margin: 0px 10px;">
+                    <div class="hidep fontcolor">
+                      100公里的奇幻旅程~阿興阿賢戒茂斯順走南二段
+                    </div>
+                    <div>
+                      邱德鑫
+                    </div>
+                  </div>
+                  <div style="flex-grow: 1;text-align: center;">
+                   <div style="font-size: 18px;">41,644</div>
+                    <div style="font-size: 12px;">次觀看</div>
+                  </div>
+                </a>
+              </li>
+              <li style="border-bottom: rgb(225, 224, 224) solid;">
+                <a href="" style="display: flex;padding: 15px 0px;align-items: center;">
+                <div style="flex-grow: 1;">
+                  <img class="imgfito" src="https://images.unsplash.com/photo-1682686581854-5e71f58e7e3f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></div>
+                <div style="flex-grow: 1;margin: 0px 10px;">
+                  <div class="hidep fontcolor">【臺北大縱走 6】象山公園→妙高台→拇指山頂峰登山口→南港山南峰→南港山→九五峰→中華科技大學</div>
+                  <div>林香梅 Mandy Lin</div>
+                </div>
+                <div style="flex-grow: 1;text-align: center;">
+                  <div style="font-size: 18px;">23,115</div>
+                  <div style="font-size: 12px;">次觀看</div>
+                </div>
+                </a>
+              </li>
+              <li style="border-bottom: rgb(225, 224, 224) solid;">
+                <a href="" style="display: flex;padding: 15px 0px;align-items: center">
+                <div style="flex-grow: 1;"><img class="imgfito" src="https://plus.unsplash.com/premium_photo-1664528916941-9aef0dd6ba78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></div>
+                <div style="flex-grow: 1;margin: 0px 10px;" >
+                  <div class="hidep fontcolor">【臺北大縱走 8】捷運動物園站→捷運關渡站［河濱自行車道］</div>
+                  <div>陳德政</div>
+                </div>
+                <div style="flex-grow: 1;text-align: center;">
+                  <div style="font-size: 18px;">10,914</div>
+                  <div style="font-size: 12px;">次觀看</div>
+                </div>
+                </a>
+              </li>
+              <li style="text-align: center;margin-top: 10px;"><a href="">
+
+                觀看完整排名
+              </a>
+            </li>
+            </ul>
+          </div>
+          <div class="texta" style="display: none;">
+
+            <ul style="list-style: none;">
+              <li style="border-bottom: rgb(225, 224, 224) solid;">
+                <a href="" style="display: flex;padding: 15px 0px;align-items: center">
+                  <div style="flex-grow: 1;">
+                    <img class="imgfito" src="https://images.unsplash.com/photo-1683315226902-fccfb8bd2693?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80" alt="">
+                  </div>
+                  <div style="flex-grow: 1;margin: 0px 10px;">
+                    <div class="hidep fontcolor">
+                      100公里的奇幻旅程~阿興阿賢戒茂斯順走南二段
+                    </div>
+                    <div>
+                      邱德鑫
+                    </div>
+                  </div>
+                  <div style="flex-grow: 1;text-align: center;">
+                   <div style="font-size: 18px;">41,644</div>
+                    <div style="font-size: 12px;">次觀看</div>
+                  </div>
+                </a>
+              </li>
+              <li style="border-bottom: rgb(225, 224, 224) solid;">
+                <a href="" style="display: flex;padding: 15px 0px;align-items: center">
+                <div style="flex-grow: 1;"><img class="imgfito" src="https://plus.unsplash.com/premium_photo-1664528916941-9aef0dd6ba78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></div>
+                <div style="flex-grow: 1;margin: 0px 10px;" >
+                  <div class="hidep fontcolor">【行腳陽明山】北台灣山海圳~消失的漁人之路</div>
+                  <div>陳財永</div>
+                </div>
+                <div style="flex-grow: 1;text-align: center;">
+                  <div style="font-size: 18px;">32,254</div>
+                  <div style="font-size: 12px;">次觀看</div>
+                </div>
+                </a>
+              </li>
+              <li style="border-bottom: rgb(225, 224, 224) solid;">
+                <a href="" style="display: flex;padding: 15px 0px;align-items: center;">
+                <div style="flex-grow: 1;">
+                  <img class="imgfito" src="https://images.unsplash.com/photo-1682686581854-5e71f58e7e3f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></div>
+                <div style="flex-grow: 1;margin: 0px 10px;">
+                  <div class="hidep fontcolor">【小編帶你走】一次走完淡蘭古道全段 </div>
+                  <div>林貴嬪 Mandy Lin</div>
+                </div>
+                <div style="flex-grow: 1;text-align: center;">
+                  <div style="font-size: 18px;">23,714</div>
+                  <div style="font-size: 12px;">次觀看</div>
+                </div>
+                </a>
+              </li>
+
+              <li style="text-align: center;margin-top: 10px;"><a href="">
+
+                觀看完整排名
+              </a>
+            </li>
+            </ul>
+          </div>
+        </div>
+        <div class="rightbox" >
+          <h5 style="font-size: 18px;color: black;">精選心得</h5>
+          <div>
+            <ul style="display:flex;list-style: none;text-align: start;flex-wrap: wrap;">
+              <li style="display:flex;padding: 10px 0px;">
+                <a href="" style="display:flex;align-items: center">
+                  <div style="flex-grow: 1;">
+                    <img class="imgfita" src="https://plus.unsplash.com/premium_photo-1669731124128-b4ff5cc94881?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt="">
+                  </div>
+                <div style="margin-left: 10px;">
+                  <div class="fontcolor">【探勘】內本鹿鹿壽橘桃林滿天下</div>
+                  <div style="display: flex;font-size: 13px;">
+                    <a href="" style="flex-grow: 1;">雪國冠哲</a>
+                    <div style="flex-grow: 1;">2023/12/11</div>
+                  </div>
+                </div>
+                </a>
+             </li>
+             <li style="display:flex;padding: 10px 0px;align-items: center;">
+              <a href="" style="display:flex;">
+                <div>
+                  <img class="imgfita" src="https://images.unsplash.com/photo-1682672412346-630c7ae0c49a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=878&q=80" alt="">
+                </div>
+              <div style="margin-left: 10px;">
+                <div class="fontcolor">【冷門路線】大安溪神木</div>
+                <div style="display: flex;font-size: 13px;">
+                  <a href="" style="flex-grow: 1;">Cathy</a>
+                  <div style="flex-grow: 1;">2022/11/12</div>
+                </div>
+              </div>
+              </a>
+           </li><li style="display:flex;padding: 10px 0px;">
+            <a href="" style="display:flex;align-items: center">
+              <div>
+                <img class="imgfita" src="https://images.unsplash.com/photo-1683350919521-b1f8e0733ef6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1675&q=80" alt="">
+              </div>
+            <div style="margin-left: 10px;">
+              <div class="fontcolor">關山大斷崖之塔關山連走恐龍塔、恐龍尖山、...</div>
+              <div style="display: flex;font-size: 13px;">
+                <a href="" style="flex-grow: 1;">邵定國</a>
+                <div style="flex-grow: 1;color: rgba(97, 97, 97, 0.769);">2020/01/11</div>
+              </div>
+            </div>
+            </a>
+         </li>
+         <li style="display:flex;padding:10px 0px;align-items: center;">
+          <a href="" style="display:flex;align-items: center">
+            <div>
+              <img class="imgfita" src="https://images.unsplash.com/photo-1683237340069-7b8b21c87fa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1914&q=80" alt="">
+            </div>
+          <div style="margin-left: 10px;">
+            <div class="fontcolor">【高階探勘】關門古道</div>
+            <div style="display: flex;font-size: 13px;">
+              <a href="" style="flex-grow: 1;">周凱倫</a>
+              <div style="flex-grow: 1;color: rgba(97, 97, 97, 0.769);">2015/12/19</div>
+            </div>
+          </div>
+          </a>
+       </li>
+      </ul>
+    </div>
+        </div>
+        <div class="rightbox">
+          <h5 style="font-size: 18px;color: black;">最新心得</h5>
+          <div>
+            <ul>
+              <li style="display: flex;padding: 10px 0px;align-items: center;">
+                <a href=""><img class="imgfita " src="https://images.unsplash.com/photo-1683360467368-45591bbccaeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></a>
+                <div style="flex-grow: 1;margin-left: 10px;">
+                  <a href=""  class="fontcolor">【臺北大縱走7】3-2貓纜貓空站→指南宮...</a>
+                  <div style="display: flex;font-size: 13px;">
+                    <a href="" style="flex-grow: 1;">MandyLin</a>
+                    <div style="flex-grow: 1;color: rgba(97, 97, 97, 0.769);">2023/05/07</div>
+                  </div>
+                </div>
+              </li>
+              <li style="display: flex;padding: 10px 0px;align-items: center;">
+                <a href=""><img class="imgfita " src="https://images.unsplash.com/photo-1682687982183-c2937a74257c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80" alt=""></a>
+                <div style="flex-grow: 1;margin-left: 10px;">
+                  <a href="" class="fontcolor">萬里長城步道O型走</a>
+                  <div style="display: flex;font-size: 13px;">
+                    <a href="" style="flex-grow: 1;">Saiyan Broly</a>
+                    <div style="flex-grow: 1;color: rgba(97, 97, 97, 0.769);">2023/05/06</div>
+                  </div>
+                </div>
+              </li><li style="display: flex;padding: 10px 0px;align-items: center;">
+                <a href=""><img class="imgfita " src="https://images.unsplash.com/photo-1683217617813-9c77d57028f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></a>
+                <div style="flex-grow: 1;margin-left: 10px;">
+                  <a href="" class="fontcolor">三生的浪漫•桐花</a>
+                  <div style="display: flex;font-size: 13px;">
+                    <a href="" style="flex-grow: 1;">Chin天天世界</a>
+                    <div style="flex-grow: 1;color: rgba(97, 97, 97, 0.769);">2023/05/06</div>
+                  </div>
+                </div>
+              </li>
+              <li style="display: flex;padding: 10px 0px;align-items: center;">
+                <a href=""><img class="imgfita " src="https://images.unsplash.com/photo-1682687220591-cfd91ab5c1b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></a>
+                <div style="flex-grow: 1;margin-left: 10px;">
+                  <a href="" class="fontcolor">漢人與泰雅族衝突的歷史古徑，森林系樟之細...</a>
+                  <div style="display: flex;font-size: 13px;">
+                    <a href="" style="flex-grow: 1;">周冠哲</a>
+                    <div style="flex-grow: 1;color: rgba(97, 97, 97, 0.769);">2023/05/06</div>
+                  </div>
+                </div>
+              </li>
+              <li style="display: flex;padding: 10px 0px;align-items: center">
+                <div style="text-align: center;width: 100%;background-color: #6a9e20;color: white;border-radius: 5px;line-height: 33px;box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                ">上傳我的心得</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div style="background-color: rgb(251, 251, 251);">
+    <div class="container" style="display: flex;padding: 40px 0px;margin-top: 30px;margin-bottom: 30px;">
+      <div>
+        <iframe  width="560" height="315" src="https://www.youtube.com/embed/fXqg6o7mtds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+      <div class="container">
+        <h3 style="font-size: 20px;color:black">推薦影片</h3>
+        <a href="" class="fontcolor" style="font-size: 24px;">【產品】掛保證 ISPO體育用品展亮眼成果 明基材料Xpore 獲多家歐美大廠青睞</a>
+        <div style="color:rgba(97, 97, 97, 0.769);margin-top: 10px;">［特派記者／黃文鈴〕全球最大體育用品展ISPOMunich德國慕尼黑體育用品展，日前剛結束三天展期，我國明基材料Xpore品牌展出多款與國內外大廠合作、採用獨特奈米多孔膜技術的最新款產品，現場吸...</div>
+      </div>    
+    </div>
+
+  </div>
+  <div class="container">
+    <h5 style="font-size: 24px;text-align: center;color:black;margin-bottom: 20px;">最新相簿</h5>
+    <div style="display: flex;flex-wrap: nowrap;gap: 10px;margin-top: 5px;">
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitgo" alt="">
+          <div>
+            <h4>【那年】我們在南湖的白雪下見證～高山 南湖 婚紗照</h4>
+            <ul class="d-flex" style="list-style: none;justify-content: space-between;padding: 0px 20px;">
+              <li>安格在百岳</li>
+              <li>2017/02/14</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1682687220015-186f63b8850a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1675&q=80" class="imgfitgo" alt="">
+          <div>
+            <h4> 【夏日沁涼】三刷大鬼瀑布</h4>
+            <ul class="d-flex" style="list-style: none;justify-content: space-between;padding: 0px 20px;">
+              <li>Edison wu</li>
+              <li>2018/11/05</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1517299321609-52687d1bc55a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitgo" alt="">
+          <div>
+            <h4>【南湖大山】220126-30 南湖下雪</h4>
+           <ul class="d-flex" style="list-style: none;justify-content:space-between;padding: 0px 20px;">
+            <li>Aron Liu</li>
+            <li>2020/09/14</li>
+           </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="display: flex;flex-wrap: nowrap;gap: 10px;margin-top: 5px;">
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1681927423260-aba418af6fbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80" class="imgfitgo" alt="">
+          <div style="padding: 0px 20px;">
+            <h4 style="margin: 0;">112/5/1石溪山 台灣石</h4>
+            <ul class="d-flex" style="list-style: none;justify-content:space-between;">
+              <li>poker Wang</li>
+              <li>2020/10/09</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1682479672124-6996483fd4a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2942&q=80" class="imgfitgo" alt="">
+          <div style="padding: 0px 20px;">
+            <h4 style="margin: 0;">大禮部落到大同部落</h4>
+            <ul class="d-flex" style="list-style: none;justify-content:space-between;">
+              <li>Amy Wang</li>
+              <li>2016/07/08</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1682542686319-393272073c6d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitgo" alt="">
+          <div style="padding: 0px 20px;">
+            <h4 style="margin: 0;">2023年4月15日同禮步道大禮部落到大同部落</h4>
+            <ul class="d-flex" style="list-style: none;justify-content:space-between;">
+              <li>Eloy Wu</li>
+              <li>2019/10/07</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1682353265028-5894624330cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitgo" alt="">
+          <div style="padding: 0px 10px;">
+            <h4 style="margin: 0;">郊山步道新店四十份/翡翠水庫壩頂日出&雲瀑&雲海5/5</h4>
+            <ul class="d-flex" style="list-style: none;justify-content:space-between;">
+              <li>JinJin Yan</li>
+              <li>2011/03/05</li>
+            </ul>         
+          </div>
+        </a>
+      </div>
+      <div class="myboxone">
+        <a href="" style="width: 100%;">
+          <img src="https://images.unsplash.com/photo-1682185853190-eb75bb706506?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="imgfitgo" alt="">
+          <div style="padding: 0px 20px;">
+            <h4 style="margin: 0;">阿興阿賢大霸群峰補考成功</h4>
+            <ul class="d-flex" style="list-style: none;justify-content:space-between;">
+              <li>Tony Liu</li>
+              <li>2015/08/25</li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div style="background-color: white;color: black;margin-top: 30px;padding: 35px;">
+  <div class="container" style="text-align: center;">
+    <h3 >品牌專區</h3>
+    <div style="width: 100%;padding: 30px;" class="swiper">
+      <div class="swiper-button-prev"></div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1453&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1532980400857-e8d9d275d858?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1602881917445-0b1ba001addf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1606850246029-dd00bd5eff97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1598532213919-078e54dd1f40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1602253057119-44d745d9b860?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1452&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt=""></div>
+          <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2787&q=80" alt=""></div>
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+    </div>
+    </div>
+  </div>
+  <footer style="background-color: black;" class="fontcolorwhite">
+    <div class="container">
+      <div style="display: flex;text-align: center;padding-top: 30px;">
+        <ul style="list-style: none;display: flex;line-height: 18px;align-items: center;" class="borderr">
+          <li style="padding-right: 15px;">
+            <a href="" class="fontcolorwhite">商城服務</a> </li>
+          <li><a href="" class="fontcolorwhite">關於我們</a> </li>
+          <li><a href="" class="fontcolorwhite">合作夥伴</a> </li>
+          <li><a href="" class="fontcolorwhite">行銷合作</a> </li>
+          <li><a href="" class="fontcolorwhite">服務條款</a> </li>
+          <li><a href="" class="fontcolorwhite">隱私權設定</a> </li>
+        </ul>
+        <a href="" class="ms-auto">
+          <img src="https://img.icons8.com/fluency/48/null/facebook-new.png" style="height: 48px;"/>
+        </a>
+        <a href="">
+          <img src="https://img.icons8.com/color/48/null/instagram-new--v1.png" style="height: 48px;"/>
+        </a>
+      </div>
+      <div style="display: flex;align-items: center;">
+        <h1><b class="fontcolor">健行</b>筆記</h1>
+        <div>
+          <p>網站客服: hikingnote@gmail.com</p>
+          <p>商品客服: shop@biji.co</p>
+        </div>
+      </div>
+      <div class="fontcolorgray">© THE NOTE CO.LTD. 版權所有 轉載必究</div>
+      
+    </div>
+
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      autoplay:true,
+      speed:100,
+      slidesPerView: 8,
+      slidesPerGroup:3,
+      spaceBetween: 30,
+      navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+    });
+
+    $(document).ready(function(){
+      $(".oka").click(function(){
+        $(".texta").css("display","block");
+        $(".album").css("display","none");
+        $(".oka").css("color","#1EA569").css("border-bottom", "2px #1EA569 solid");
+        $(".okb").css("color","rgba(97, 97, 97, 0.769)").css("border-bottom","2px rgba(194, 194, 194) solid ")
+      });
+      $(".okb").click(function(){
+        $(".texta").css("display","none");
+        $(".album").css("display","block");
+        $(".okb").css("color","#1EA569").css("border-bottom", "2px #1EA569 solid");
+        $(".oka").css("color","rgba(97, 97, 97, 0.769)").css("border-bottom","2px rgb(194, 194, 194) solid ")
+      })
+    })
+  </script>
+
+
+</body>
+</html>

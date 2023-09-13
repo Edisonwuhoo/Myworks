@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>過濾影片格式</title>
+    <style>
+     table{
+        border: 2px solid black;
+        width:75%;
+        margin: 0 auto;
+     }
+     .infoPlace{
+      text-align: center;
+      width: 100%;
+     }
+     td, th{
+        border:  1px solid black;
+     }
+
+     #thisFormResult, #thisDurationResult{
+        font-weight: bold;
+     }
+     #dropbox{
+        width: 40%;
+        height: 25vh;
+        background-color: rgb(161, 186, 181);
+        color: rgb(25, 25, 113);
+        font-weight: bold;
+        font-size: 1.5rem;
+        border: 3px solid rgb(40, 32, 32);
+        text-align: center;
+        margin: 5% auto;
+        padding: 3rem 2rem;
+     }
+     body{
+      background-color: azure;
+     }
+
+    </style>
+    <script src="//unpkg.com/jquery"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+<div id="dropbox">
+    將檔案拖曳到此或是點擊按鈕
+</div>
+<div class="infoPlace">
+   <input type="file" name="inputFile" id="inputFile" data-target="file-uploader" multiple>
+   <br><br>
+   <table>
+       <tr>
+           <th>檢查項目</th>
+           <th>需求規格</th>
+           <th>檢查結果</th>
+           <th>是否通過</th>
+       </tr>
+   </table>
+   <p>判斷影片長度格式解析度是否符合規定</p>
+</div>
+</body>
+</html>
